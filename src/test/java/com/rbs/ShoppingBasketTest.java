@@ -33,12 +33,31 @@ public class ShoppingBasketTest {
 	}
 	
 	@Test
-	public void testTotalCostOfFourItems() throws Exception {
+	public void testTotalCostOfFiveItems() throws Exception {
 		shoppingBasket.addItem(new Item("Orange", 1.2));
 		shoppingBasket.addItem(new Item("Aple", 2.50));
 		shoppingBasket.addItem(new Item("Bananas", 3.4));
-		shoppingBasket.addItem(new Item("Peach", 1.6));
-		assertTrue(8.7 == shoppingBasket.totalCost());
+		shoppingBasket.addItem(new Item("Lemons", 2.3));
+		shoppingBasket.addItem(new Item("Peaches", 1.6));
+		assertTrue(11.0 == shoppingBasket.totalCost());
+	}
+	
+	@Test
+	public void testTotalCostOfAtLeastOneTypeOfItem() throws Exception {
+		shoppingBasket.addItem(new Item("Orange", 1.2));
+		shoppingBasket.addItem(new Item("Orange", 1.2));
+		shoppingBasket.addItem(new Item("Aple", 2.50));
+		shoppingBasket.addItem(new Item("Aple", 2.50));
+		shoppingBasket.addItem(new Item("Aple", 2.50));
+		shoppingBasket.addItem(new Item("Bananas", 3.4));
+		shoppingBasket.addItem(new Item("Bananas", 3.4));
+		shoppingBasket.addItem(new Item("Lemons", 2.3));
+		shoppingBasket.addItem(new Item("Lemons", 2.3));
+		shoppingBasket.addItem(new Item("Lemons", 2.3));
+		shoppingBasket.addItem(new Item("Lemons", 2.3));
+		shoppingBasket.addItem(new Item("Peaches", 1.6));
+		System.out.println(shoppingBasket.totalCost());
+		assertTrue(27.5 == shoppingBasket.totalCost());
 	}
 
 }
