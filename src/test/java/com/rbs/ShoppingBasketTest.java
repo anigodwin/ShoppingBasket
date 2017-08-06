@@ -33,7 +33,7 @@ public class ShoppingBasketTest {
 	}
 	
 	@Test
-	public void testTotalCostOfFiveItems() throws Exception {
+	public void testTotalCostOfAllFiveItems() throws Exception {
 		shoppingBasket.addItem(new Item("Orange", 1.2));
 		shoppingBasket.addItem(new Item("Aple", 2.50));
 		shoppingBasket.addItem(new Item("Bananas", 3.4));
@@ -56,7 +56,6 @@ public class ShoppingBasketTest {
 		shoppingBasket.addItem(new Item("Lemons", 2.3));
 		shoppingBasket.addItem(new Item("Lemons", 2.3));
 		shoppingBasket.addItem(new Item("Peaches", 1.6));
-		System.out.println(shoppingBasket.totalCost());
 		assertTrue(27.5 == shoppingBasket.totalCost());
 	}
 

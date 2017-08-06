@@ -12,7 +12,7 @@ public class Item {
 		this.unitPrice = Math.abs(unitPrice);
 	}
 
-	public double cost() {
+	public double price() {
 		return unitPrice;
 	}
 

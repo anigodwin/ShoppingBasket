@@ -6,12 +6,13 @@ import java.util.List;
 public class ShoppingBasket {
 	private final List<Item> items;
 	
-	public ShoppingBasket () {
+	public ShoppingBasket() {
 		this.items = new ArrayList<Item>();
 	}
 	
-	public void addItem(final Item item) {
+	public ShoppingBasket addItem(final Item item) {
 		items.add(item);
+		return this;
 	}
  
 	public int totalItems() {
@@ -19,7 +20,17 @@ public class ShoppingBasket {
 	}
 
 	public double totalCost() {
-		return items.stream().mapToDouble(item -> item.cost()).sum();
+		return items.stream().mapToDouble(item -> item.price()).sum();
+	}
+	
+	public static void main(String[] args) {
+		ShoppingBasket shoppingBasket = new ShoppingBasket()
+				.addItem(new Item("Orange", 1.2))
+				.addItem(new Item("Aple", 2.50))
+				.addItem(new Item("Bananas", 3.4))
+				.addItem(new Item("Lemons", 2.3))
+				.addItem(new Item("Peaches", 1.6));
+		System.out.println(shoppingBasket.totalCost());
 	}
 
 }
