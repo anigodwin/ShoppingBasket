@@ -30,7 +30,7 @@ public class ShoppingBasket {
 				.addItem(new Item("Bananas"))
 				.addItem(new Item("Lemons"))
 				.addItem(new Item("Peaches"));
-		System.out.println(shoppingBasket.totalCost());
+		System.out.println("Total cost of basket: " + shoppingBasket.totalCost() + "GBP");
 	}
 
 }
