@@ -16,14 +16,14 @@ public class ShoppingBasketTest {
 	
 	@Test
 	public void testAddOneItemToBasket() throws Exception {
-		shoppingBasket.addItem(new Item("Orange", 1.2));
+		shoppingBasket.addItem(new Item("Oranges"));
 		assertEquals(1, shoppingBasket.totalItems());
 	}
 	
 	@Test
 	public void testTotalCostOfTwoItems() throws Exception {
-		shoppingBasket.addItem(new Item("Orange", 1.2));
-		shoppingBasket.addItem(new Item("Aple", 2.50));
+		shoppingBasket.addItem(new Item("Oranges"));
+		shoppingBasket.addItem(new Item("Apples"));
 		assertTrue(3.7 == shoppingBasket.totalCost());
 	}
 	
@@ -34,29 +34,37 @@ public class ShoppingBasketTest {
 	
 	@Test
 	public void testTotalCostOfAllFiveItems() throws Exception {
-		shoppingBasket.addItem(new Item("Orange", 1.2));
-		shoppingBasket.addItem(new Item("Aple", 2.50));
-		shoppingBasket.addItem(new Item("Bananas", 3.4));
-		shoppingBasket.addItem(new Item("Lemons", 2.3));
-		shoppingBasket.addItem(new Item("Peaches", 1.6));
+		shoppingBasket.addItem(new Item("Oranges"))
+			.addItem(new Item("Apples"))
+			.addItem(new Item("Bananas"))
+			.addItem(new Item("Lemons"))
+			.addItem(new Item("Peaches"));
 		assertTrue(11.0 == shoppingBasket.totalCost());
 	}
 	
 	@Test
 	public void testTotalCostOfAtLeastOneTypeOfItem() throws Exception {
-		shoppingBasket.addItem(new Item("Orange", 1.2));
-		shoppingBasket.addItem(new Item("Orange", 1.2));
-		shoppingBasket.addItem(new Item("Aple", 2.50));
-		shoppingBasket.addItem(new Item("Aple", 2.50));
-		shoppingBasket.addItem(new Item("Aple", 2.50));
-		shoppingBasket.addItem(new Item("Bananas", 3.4));
-		shoppingBasket.addItem(new Item("Bananas", 3.4));
-		shoppingBasket.addItem(new Item("Lemons", 2.3));
-		shoppingBasket.addItem(new Item("Lemons", 2.3));
-		shoppingBasket.addItem(new Item("Lemons", 2.3));
-		shoppingBasket.addItem(new Item("Lemons", 2.3));
-		shoppingBasket.addItem(new Item("Peaches", 1.6));
+		shoppingBasket.addItem(new Item("Oranges"))
+			.addItem(new Item("Oranges"))
+			.addItem(new Item("Apples"))
+			.addItem(new Item("Apples"))
+			.addItem(new Item("Apples"))
+			.addItem(new Item("Bananas"))
+			.addItem(new Item("Bananas"))
+			.addItem(new Item("Lemons"))
+			.addItem(new Item("Lemons"))
+			.addItem(new Item("Lemons"))
+			.addItem(new Item("Lemons"))
+			.addItem(new Item("Peaches"));
 		assertTrue(27.5 == shoppingBasket.totalCost());
+	}
+	
+	@Test
+	public void testTotalCostWithInvalidItem_shouldReturnCostValidItemsOnly() throws Exception {
+		shoppingBasket.addItem(new Item("Oranges"))
+		.addItem(new Item("Oranges"))
+		.addItem(new Item("Mangos"));
+		assertTrue(2.4 == shoppingBasket.totalCost());
 	}
 
 }

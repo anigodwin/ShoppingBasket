@@ -25,11 +25,11 @@ public class ShoppingBasket {
 	
 	public static void main(String[] args) {
 		ShoppingBasket shoppingBasket = new ShoppingBasket()
-				.addItem(new Item("Orange", 1.2))
-				.addItem(new Item("Aple", 2.50))
-				.addItem(new Item("Bananas", 3.4))
-				.addItem(new Item("Lemons", 2.3))
-				.addItem(new Item("Peaches", 1.6));
+				.addItem(new Item("Oranges"))
+				.addItem(new Item("Apples"))
+				.addItem(new Item("Bananas"))
+				.addItem(new Item("Lemons"))
+				.addItem(new Item("Peaches"));
 		System.out.println(shoppingBasket.totalCost());
 	}
 

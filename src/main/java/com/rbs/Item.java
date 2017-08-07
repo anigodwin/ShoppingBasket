@@ -3,17 +3,32 @@ package com.rbs;
 import java.util.Objects;
 
 public class Item {
-
 	private final String name;
-	private final double unitPrice;
 	
-	public Item(final String name, final double unitPrice) {
+	public Item(final String name) {
 		this.name = Objects.requireNonNull(name);
-		this.unitPrice = Math.abs(unitPrice);
 	}
 
+	/**
+	 * Price of the named item.
+	 * If the name of the item is invalid not priced it returns 0.0 (zero).
+	 * @return the price of the named item in <code>double</code>. 
+	 */
 	public double price() {
-		return unitPrice;
+		switch (name) {
+		case "Oranges":
+			return 1.2;
+		case "Apples":
+			return 2.50;
+		case "Bananas":
+			return 3.4;
+		case "Lemons":
+			return 2.3;
+		case "Peaches":
+			return 1.6;
+		default:
+			return 0.0;
+		}
 	}
 
 }
