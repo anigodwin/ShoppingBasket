@@ -1,9 +1,12 @@
-package com.rbs;
+package com.rbc;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.rbc.Item;
+import com.rbc.ShoppingBasket;
 
 public class ShoppingBasketTest {
 
